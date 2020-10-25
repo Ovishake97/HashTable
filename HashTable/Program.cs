@@ -15,6 +15,9 @@ namespace HashTable
             mapNode.Add("4", "be");
             mapNode.Add("5", "not");
             mapNode.GetFrequency("0");
+            mapNode.Remove("4");
+            mapNode.Display();
+            Console.ReadLine();
         }
     }
 }
