@@ -69,6 +69,26 @@ namespace HashTable
             }
             Console.WriteLine("Occurence of the word " + Get(key) + " is " + count);
         }
+        /// Method to remove a word
+        public void Remove(K key)
+        {
+            int position = GetArrayPosition(key);
+            LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
+            bool itemFound = false;
+            KeyValue<K, V> foundItem = default(KeyValue<K, V>);
+            foreach (KeyValue<K, V> item in linkedList)
+            {
+                if (item.Key.Equals(key))
+                {
+                    itemFound = true;
+                    foundItem = item;
+                }
+            }
+            if (itemFound)
+            {
+                linkedList.Remove(foundItem);
+            }
+        }
 
         /// Adding to the linked list
         public void Add(K key, V value)
