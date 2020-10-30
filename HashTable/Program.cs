@@ -6,16 +6,20 @@ namespace HashTable
     {
         static void Main(string[] args)
         {
-            MyMapNode<string, string> mapNode = new MyMapNode<string, string>(5);
-            Console.WriteLine("Adding KeyValue pair");
-            mapNode.Add("0", "to");
-            mapNode.Add("1", "be");
-            mapNode.Add("2", "or");
-            mapNode.Add("3", "to");
-            mapNode.Add("4", "be");
-            mapNode.Add("5", "not");
-            mapNode.GetFrequency("0");
-            mapNode.Remove("4");
+             Console.WriteLine("Enter the sentence");
+            string sentence = Console.ReadLine();
+            string[] splitMessage = sentence.Split(" ");
+            MyMapNode<string, int> mapNode = new MyMapNode<string, int>(splitMessage.Length);
+            
+            for (int i = 0; i < splitMessage.Length; i++) {
+                mapNode.Add(splitMessage[i],i);
+            }
+            Console.WriteLine("Enter the word where you require to know the frequency");
+            string word = Console.ReadLine();
+            mapNode.GetFrequency(word);
+            Console.WriteLine("Enter the word that you want to remove");
+            string remove = Console.ReadLine();
+            mapNode.Remove(remove);
             mapNode.Display();
             Console.ReadLine();
         }
