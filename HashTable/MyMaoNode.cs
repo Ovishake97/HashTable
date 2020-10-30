@@ -62,12 +62,12 @@ namespace HashTable
             LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
             int count = 0;
             foreach (KeyValue<K, V> item in linkedList) {
-                if (item.Value.Equals(Get(key)))
+                if (item.Key.Equals(key))
                 {
-                    count++;
+                    ++count;
                 }
             }
-            Console.WriteLine("Occurence of the word " + Get(key) + " is " + count);
+            Console.WriteLine("Occurence of the word " + key + " is " + count);
         }
         /// Method to remove a word
         public void Remove(K key)
